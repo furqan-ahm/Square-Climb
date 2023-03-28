@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="10" height="150" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="10">
+<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="10" height="150" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="25">
  <tileset firstgid="1" source="blocks.tsx"/>
  <layer id="1" name="Tile Layer 1" width="10" height="150">
   <data encoding="base64">
@@ -11,6 +11,17 @@
   <object id="7" class="Steppable" x="160" y="4512" width="96" height="32"/>
   <object id="8" class="Unsteppable" x="256" y="4480" width="32" height="64"/>
   <object id="9" class="Steppable" x="32" y="4448" width="64" height="32"/>
+  <object id="10" class="Steppable" x="128" y="4320" width="96" height="32"/>
+  <object id="13" class="UnSteppable" x="224" y="4320" width="32" height="32"/>
+  <object id="15" class="Unsteppable" x="32" y="4224" width="64" height="32"/>
+  <object id="16" class="Steppable" x="64" y="4192" width="32" height="32"/>
+  <object id="17" class="Steppable" x="192" y="4192" width="96" height="32"/>
+  <object id="18" class="Steppable" x="32" y="4000" width="32" height="96"/>
+  <object id="19" class="Steppable" x="64" y="4032" width="32" height="64"/>
+  <object id="20" class="Steppable" x="96" y="4064" width="32" height="32"/>
+  <object id="21" class="Steppable" x="256" y="3968" width="64" height="32"/>
+  <object id="22" class="Unsteppable" x="160" y="3968" width="96" height="32"/>
+  <object id="24" x="96" y="3936" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="2" name="Spawn">
   <object id="4" class="Player" x="36.5" y="4606.83" width="42" height="28.6667"/>
