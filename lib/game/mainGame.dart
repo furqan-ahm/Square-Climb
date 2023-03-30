@@ -33,8 +33,11 @@ class MainGame extends Forge2DGame with VerticalDragDetector, TapDetector{
   void onTapDown(TapDownInfo info) {
     if(info.raw.localPosition.dx>canvasSize.x/2){
       player.moveRight=true;
+      player.body.linearVelocity= Vector2(8, player.body.linearVelocity.y);
     }else {
       player.moveLeft=true;
+      player.body.linearVelocity= Vector2(-8, player.body.linearVelocity.y);
+      
     }
     
     super.onTapDown(info);
