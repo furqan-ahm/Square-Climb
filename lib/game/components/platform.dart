@@ -3,7 +3,9 @@ import 'dart:ui';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flutter/material.dart';
 
-class Platform extends BodyComponent{
+import '../actors/player.dart';
+
+class Platform extends BodyComponent with ContactCallbacks{
 
 
   Platform({
@@ -22,6 +24,15 @@ class Platform extends BodyComponent{
   @override
   Future<void> onLoad() {
     return super.onLoad();
+  }
+
+
+  @override
+  void beginContact(Object other, Contact contact) {
+    if(other is Player && !touchable){
+      print('GAME OVER');
+    }
+    super.beginContact(other, contact);
   }
 
 
