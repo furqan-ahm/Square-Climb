@@ -1,14 +1,13 @@
-import 'package:flame/cache.dart';
-import 'package:flame/game.dart';
+
 import 'package:flutter/material.dart';
 import 'package:game/controllers/game_controller.dart';
 import 'package:game/ui/widgets/custom_button.dart';
 import 'package:get/get.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends GetView<GameController> {
   const SettingsScreen({Key? key}) : super(key: key);
 
-  GameController get controller => Get.find<GameController>();
+  
 
   @override
   Widget build(BuildContext context) {
