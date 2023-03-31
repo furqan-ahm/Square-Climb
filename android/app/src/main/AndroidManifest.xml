@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ssquar3climing.game">
    <application
-        android:label="game"
+        android:label="Square Clim"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

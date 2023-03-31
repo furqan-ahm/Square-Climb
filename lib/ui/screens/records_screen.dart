@@ -70,7 +70,7 @@ class RecordsScreen extends GetView<GameController> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text('${controller.scores[index]}%  ', style: const TextStyle(fontSize: 22, color: Colors.white, fontFamily: 'Kirang'),),
-                                          Expanded(child: LinearProgressIndicator(color: Colors.red, value: int.parse(controller.scores[index])/100,))
+                                          Expanded(child: LinearProgressIndicator(color: Colors.red, backgroundColor: const Color(0xff58637D), value: int.parse(controller.scores[index])/100,))
                                         ],
                                       ),
                                     )
