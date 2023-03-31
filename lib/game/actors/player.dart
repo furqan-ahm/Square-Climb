@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:async' as sync;
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
 import 'package:flame/particles.dart' as flame;

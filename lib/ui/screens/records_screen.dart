@@ -55,10 +55,10 @@ class RecordsScreen extends GetView<GameController> {
                             child: ListView.builder(
                               itemCount: controller.scores.length,
                               itemBuilder: (context,index)=>Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                                 child: Row(
                                   children: [
-                                    Flexible(
+                                    const Flexible(
                                       flex: 1,
                                       child: Text('YOU', style: TextStyle(fontSize: 24, color: Color(0xffF9AAA8)),),
                                     ),

@@ -29,18 +29,8 @@ class Flood extends BodyComponent with ContactCallbacks{
     Future.delayed(const Duration(seconds: 2),(){body.linearVelocity=Vector2(0, -2);});
     return super.onLoad();
   }
-
-
-
-  @override
-  void beginContact(Object other, Contact contact) {
-    
-    super.beginContact(other, contact);
-  }
-
   
   @override
-  // TODO: implement renderBody
   bool get renderBody => false;
 
   @override

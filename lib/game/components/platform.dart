@@ -1,7 +1,5 @@
-import 'dart:ui';
 
 import 'package:flame_forge2d/flame_forge2d.dart';
-import 'package:flutter/material.dart';
 import 'package:game/controllers/game_controller.dart';
 import 'package:get/get.dart';
 
@@ -23,10 +21,6 @@ class Platform extends BodyComponent with ContactCallbacks{
   bool touchable;
 
 
-  @override
-  Future<void> onLoad() {
-    return super.onLoad();
-  }
 
 
   GameController get controller=>Get.find<GameController>();
