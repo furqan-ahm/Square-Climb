@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:game/game/actors/player.dart';
+import 'package:game/game/components/flood.dart';
 import 'package:game/game/components/platform.dart';
 import 'package:game/game/mainGame.dart';
 
@@ -31,12 +32,22 @@ class MapLevel extends Component with HasGameRef<MainGame>{
       game.add(Platform(position: Vector2(platform.x/10, platform.y/10), size: Vector2(platform.width/10, platform.height/10), touchable: platform.class_=='Steppable'));
     }
 
+
+    final flood=Flood(position: Vector2(map.scaledSize.x/2,map.scaledSize.y+10), size: Vector2(game.canvasSize.x/10, map.scaledSize.x*32/9));
+    game.add(flood);
+    game.flood=flood;
+
+
+
     for(final spawn in spawnLayer!.objects){
       if(spawn.class_=='Player'){
         game.addPlayer(Player(position: Vector2(spawn.x/10,spawn.y/10), size: Vector2(spawn.width/10, spawn.height/10)));
-        //game.camera.followVector2(Vector2(map.scaledSize.x/2,spawn.y/10-game.canvasSize.y/40),);
       }
     }
+
+    
+    
+
 
     return super.onLoad();
   }

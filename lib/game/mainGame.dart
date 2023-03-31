@@ -5,10 +5,13 @@ import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flutter/material.dart';
+import 'package:game/controllers/game_controller.dart';
+import 'package:game/game/components/flood.dart';
 import 'package:game/game/maps/map.dart';
 import 'package:get/get.dart';
 
 import 'actors/player.dart';
+import 'hud/percentHud.dart';
 
 class MainGame extends Forge2DGame with VerticalDragDetector, TapDetector{
 
@@ -22,6 +25,12 @@ class MainGame extends Forge2DGame with VerticalDragDetector, TapDetector{
 
   late Player player;
 
+  late Flood flood;
+
+
+
+  GameController get controller=>Get.find<GameController>();
+
 
   addPlayer(Player player){
     this.player=player;
@@ -30,13 +39,20 @@ class MainGame extends Forge2DGame with VerticalDragDetector, TapDetector{
 
 
   @override
+  void update(double dt) {
+    
+    super.update(dt);
+  }
+
+
+  @override
   void onTapDown(TapDownInfo info) {
     if(info.raw.localPosition.dx>canvasSize.x/2){
       player.moveRight=true;
-      player.body.linearVelocity= Vector2(8, player.body.linearVelocity.y);
+      player.body.linearVelocity= Vector2(7, player.body.linearVelocity.y);
     }else {
       player.moveLeft=true;
-      player.body.linearVelocity= Vector2(-8, player.body.linearVelocity.y);
+      player.body.linearVelocity= Vector2(-7, player.body.linearVelocity.y);
       
     }
     
@@ -47,7 +63,10 @@ class MainGame extends Forge2DGame with VerticalDragDetector, TapDetector{
   @override
   void onVerticalDragEnd(DragEndInfo info) {
     if (info.raw.velocity.pixelsPerSecond.dy < -500) {
-      if(player.grounded)player.body.applyLinearImpulse(Vector2(0, -200));
+      if(player.grounded){
+        controller.playJumpSfx();
+        player.body.applyLinearImpulse(Vector2(0, -200));
+      }
     }
     super.onVerticalDragEnd(info);
   }
@@ -69,7 +88,6 @@ class MainGame extends Forge2DGame with VerticalDragDetector, TapDetector{
 
   @override
   FutureOr<void> onLoad() async{
-    
     //camera.viewport=FixedResolutionViewport(Vector2(340, Get.height));
     camera.zoom=11;
 
@@ -78,6 +96,9 @@ class MainGame extends Forge2DGame with VerticalDragDetector, TapDetector{
     add(map);
     
 
+
+
+    add(Hud(priority: -1));
     await super.onLoad();
   }
 }

@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flutter/material.dart';
+import 'package:game/controllers/game_controller.dart';
+import 'package:get/get.dart';
 
 import '../actors/player.dart';
 
@@ -27,10 +29,13 @@ class Platform extends BodyComponent with ContactCallbacks{
   }
 
 
+  GameController get controller=>Get.find<GameController>();
+
+
   @override
   void beginContact(Object other, Contact contact) {
     if(other is Player && !touchable){
-      print('GAME OVER');
+      controller.gameOver();
     }
     super.beginContact(other, contact);
   }
