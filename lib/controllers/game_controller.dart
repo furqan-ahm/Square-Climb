@@ -10,8 +10,8 @@ class GameController extends GetxController {
 
   SharedPreferences? instance;
 
-  RxInt sound = 0.obs;
-  RxInt music = 0.obs;
+  RxDouble sound = .0.obs;
+  RxDouble music = .0.obs;
 
   RxInt globalScore = 0.obs;
 
@@ -33,20 +33,26 @@ class GameController extends GetxController {
   void onInit() {
     SharedPreferences.getInstance().then((value) {
       instance = value;
-      sound.value = instance!.getInt('sound') ?? 70;
-      music.value = instance!.getInt('music') ?? 70;
+      sound.value = instance!.getDouble('sound') ?? 70;
+      music.value = instance!.getDouble('music') ?? 70;
       scores.value = instance!.getStringList('scores') ?? [];
 
       scores.listen((p0) {
         instance!.setStringList('scores', p0);
       });
 
-      // music.listen((music) {
-      //   if ((!FlameAudio.bgm.isPlaying)) {
+      music.listen((music) {
+        instance!.setDouble('music', music);
+        if ((!FlameAudio.bgm.isPlaying)) {
 
-      //     FlameAudio.bgm.play('bg.mp3', volume: music/100);
-      //   }else{FlameAudio.bgm.audioPlayer.setVolume(music/100);}
-      // });
+          FlameAudio.bgm.play('bg.mp3', volume: music/100);
+        }else{FlameAudio.bgm.audioPlayer.setVolume(music/100);}
+      });
+
+      sound.listen((p0) {
+        instance!.setDouble('sound', p0);
+      });
+
       music.refresh();
     });
     super.onInit();

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game/ui/screens/game_screen.dart';
+import 'package:game/ui/screens/records_screen.dart';
+import 'package:game/ui/screens/settings_screen.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/game_controller.dart';
@@ -32,7 +34,7 @@ class MenuScreen extends GetView<GameController> {
               child: Center(
                 child: Text(
                   'SQUARE.CLIM',
-                  style: TextStyle(color: Colors.white, fontSize: 48),
+                  style: TextStyle(color: Colors.white, fontSize: 48, fontFamily: 'Kirang'),
                 ),
               ),
             ),
@@ -57,7 +59,7 @@ class MenuScreen extends GetView<GameController> {
                   CustomButton(
                     title: 'SETTINGS',
                     onPressed: (){
-
+                      Get.to(const SettingsScreen());
                     },
                   ),
                   const SizedBox(
@@ -66,7 +68,7 @@ class MenuScreen extends GetView<GameController> {
                   CustomButton(
                     title: 'RECORDS',
                     onPressed: (){
-
+                      Get.to(const RecordsScreen());
                     },
                   ),
                 ],
