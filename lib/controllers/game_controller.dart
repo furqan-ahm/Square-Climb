@@ -49,6 +49,13 @@ class GameController extends GetxController {
         }else{FlameAudio.bgm.audioPlayer.setVolume(music/100);}
       });
 
+
+      globalScore.listen((p0) {
+        if(p0==100){
+          gameOver(win: true);
+        }
+      });
+
       sound.listen((p0) {
         instance!.setDouble('sound', p0);
       });
