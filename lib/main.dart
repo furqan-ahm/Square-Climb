@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:game/bindings/global.dart';
-import 'package:game/ui/screens/game_screen.dart';
+import 'package:game/ui/screens/menu_screen.dart';
 import 'package:get/get.dart';
 
 void main() async{
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const GameScreen(),
+      home: const MenuScreen(),
     );
   }
 }

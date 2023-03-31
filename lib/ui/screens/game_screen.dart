@@ -12,15 +12,19 @@ const GameScreen({ Key? key }) : super(key: key);
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            padding: const EdgeInsets.all(25),
-            child: GameWidget(game: controller.game,),
+          GetBuilder<GameController>(
+            builder: (cont) {
+              return Container(
+                padding: const EdgeInsets.all(25),
+                child: GameWidget(game: controller.game,),
+              );
+            }
           ),
           Align(
             alignment: Alignment.topLeft,
             child: GestureDetector(
               onTap: (){
-                print('stop');
+                controller.pause();
               },
               child: Container(
                 color: Colors.red.withOpacity(0.8),
